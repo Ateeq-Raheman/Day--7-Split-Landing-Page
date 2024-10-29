@@ -1,0 +1,140 @@
+@import url("https://fonts.googleapis.com/css2?family=Ubuntu&display=swap");
+
+* {
+    box-sizing: border-box;
+}
+
+:root {
+    --left-bgcolor: rgba(43, 43, 43, 0.6);
+    --left-btncolor: rgba(43, 43, 43, 0.6);
+    --right-bgcolor: rgba(43, 43, 43, 0.6);
+    --right-btncolor: rgba(43, 43, 43, 0.9);
+    --hover-width: 90%;
+    --other: 10%;
+    --speed: 1000ms;
+}
+
+body {
+    font-family: "Ubuntu", sans-serif;
+    margin: 0;
+    overflow: hidden;
+    height: 100vh;
+}
+
+h1 {
+    font-size: 4rem;
+    color: #fff;
+    position: absolute;
+    left: 50%;
+    top: 20%;
+    transform: translateX(-50%);
+    white-space: nowrap;
+}
+
+.btn {
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    left: 50%;
+    top: 40%;
+    transform: translateX(-50%);
+    text-decoration: none;
+    color: #fff;
+    border: #fff solid 0.2rem;
+    font-size: 1rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    width: 15rem;
+    padding: 1.5rem;
+}
+
+.split.left .btn:hover {
+    color: black;
+    background: linear-gradient(to right, rgb(202, 154, 65) 33.33%, red 66.66%);
+}
+
+
+.split.right .btn:hover {
+    color: black;
+    background: linear-gradient(to right, blue 15%, white 66.66%, red 100%);
+}
+
+.container {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    background: rgb(144, 148, 156);
+}
+
+.split {
+    position: absolute;
+    width: 50%;
+    height: 100%;
+    overflow: hidden;
+}
+
+.split.left {
+    left: 0;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-image: url("https://w0.peakpx.com/wallpaper/698/700/HD-wallpaper-royal-enfield-royal-classic350-gir-automobile-bike-gunmetal-gray-sasan-hiran.jpg");
+}
+
+.split.left::before {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: var(--left-bgcolor);
+}
+
+.split.right::before {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: var(--right-bgcolor);
+}
+
+.split.right {
+    right: 0;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-image: url("https://w0.peakpx.com/wallpaper/61/717/HD-wallpaper-bmw-s1000rr-2019-superbike-s1000rr-bmw-moto.jpg");
+}
+
+.split.right,
+.split.left,
+.split.left::before,
+.split.right::before {
+    transition: all var(--speed) ease-in-out;
+}
+
+.hover-left .left {
+    width: var(--hover-width);
+}
+
+.hover-left .right {
+    width: var(--other);
+}
+
+.hover-right .right {
+    width: var(--hover-width);
+}
+
+.hover-right .left {
+    width: var(--other);
+}
+
+@media (max-width: 800px) {
+    h1 {
+        font-size: 2rem;
+        top: 30%;
+    }
+
+    .btn {
+        padding: 1.2rem;
+        width: 12rem;
+    }
+}
